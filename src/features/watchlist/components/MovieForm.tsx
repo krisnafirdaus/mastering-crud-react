@@ -32,11 +32,13 @@ export default function MovieForm({ onSubmit, initialData, onCancel }: MovieForm
     return (
         <form onSubmit={handleSubmit}>
             <input
+                className="border bg-white"
                 value={title}
                 onChange={e => setTitle(e.target.value)}
                 placeholder="Movie title"
             />
             <input
+                className="border bg-white"
                 type="number"
                 value={rating}
                 onChange={e => setRating(Number(e.target.value))}
@@ -44,7 +46,7 @@ export default function MovieForm({ onSubmit, initialData, onCancel }: MovieForm
                 min="0"
                 max="10"
             />
-            <button type="submit">
+            <button type="submit" className="border">
                 {initialData ? "update" : "Add"}
             </button>
             {initialData && (

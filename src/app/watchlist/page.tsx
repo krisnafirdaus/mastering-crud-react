@@ -37,8 +37,6 @@ export default function WatchListPage() {
         setEditingMovie(movie);
     };
 
-    console.log(post);
-
     return (
         <div>
             <h1>My WatchList</h1>
@@ -63,11 +61,11 @@ export default function WatchListPage() {
                 ))}
             </div>
 
-            <div>
+            {/* <div>
                 {post?.map((post: any) => {
                     return <h1>{post.title}</h1>;
                 })}
-            </div>
+            </div> */}
         </div>
     )
 }
