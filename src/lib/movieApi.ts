@@ -1,13 +1,15 @@
+const API_URL = "localhost:8080"
+
 export const movieApi = {
     // GET
     async getWatchList() { // asynchronous  
-        const res = await fetch("/api/watchlist");
+        const res = await fetch(`{API_URL/api/watchlist`);
         return res.json();
     },
 
     // CREATE
     async addToWatchList(movie: any) {
-        const res = await fetch("/api/watchlist", {
+        const res = await fetch(`${API_URL}/api/watchlist`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(movie)  
@@ -18,7 +20,7 @@ export const movieApi = {
 
     // UPDATE
     async updateMovie(id: number, data: any) {
-        const res = await fetch(`/api/watchlist/${id}`, {
+        const res = await fetch(`${API_URL}/api/watchlist/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)  
@@ -29,7 +31,7 @@ export const movieApi = {
 
     // DELETE
     async removeFromWatchlist(id: number) {
-        const res = await fetch(`/api/watchlist/${id}`, {
+        const res = await fetch(`${API_URL}/api/watchlist/${id}`, {
             method: "DELETE"
         });
     }
