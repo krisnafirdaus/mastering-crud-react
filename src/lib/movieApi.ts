@@ -1,9 +1,15 @@
-const API_URL = "localhost:8080"
+const API_URL = "https://jsonplaceholder.typicode.com"
 
 export const movieApi = {
     // GET
     async getWatchList() { // asynchronous  
-        const res = await fetch(`{API_URL/api/watchlist`);
+        const res = await fetch(`${API_URL}/api/watchlist`);
+        return res.json();
+    },
+
+    // GET
+    async getPost(){
+        const res = await fetch(`${API_URL}/posts`);
         return res.json();
     },
 

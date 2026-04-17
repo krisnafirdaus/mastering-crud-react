@@ -7,10 +7,11 @@ import { movieApi } from "@/lib/movieApi";
 
 export default function WatchListPage() {
     const [movies, setMovies] = useState<any>([]);
+    const [post, setPost] = useState<any>([]);
     const [editingMovie, setEditingMovie] = useState<any | null>(null);
 
     useEffect(() => {
-        movieApi.getWatchList().then(setMovies);
+        movieApi.getPost().then(setPost);
     }, []);
 
     const handleAdd = async (newMovies: Omit<any, 'id'>) => {
@@ -36,6 +37,8 @@ export default function WatchListPage() {
         setEditingMovie(movie);
     };
 
+    console.log(post);
+
     return (
         <div>
             <h1>My WatchList</h1>
@@ -47,7 +50,7 @@ export default function WatchListPage() {
             />
 
             <div className="movie-grid">
-                {movies.map((movie: any) => (
+                {movies?.map((movie: any) => (
                     <MovieItem
                         key={movie.id}
                         movie={movie}
@@ -59,11 +62,13 @@ export default function WatchListPage() {
                     />
                 ))}
             </div>
+
+            <div>
+                {post?.map((post: any) => {
+                    return <h1>{post.title}</h1>;
+                })}
+            </div>
         </div>
     )
 }
-
-- watchlist page
-    - Movie Form
-    - Movie Item
     
